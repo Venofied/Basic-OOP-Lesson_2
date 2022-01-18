@@ -81,6 +81,69 @@ namespace Lesson_2
         {
             _balance += balance;
         }
+        public static bool MoneyTransfer(ref BankAccount3 WriteOffAccount, ref BankAccount3 СreditAccount, decimal Sum)
+        {
+            if (WriteOffAccount.Balance > Sum)
+            {
+                decimal TmpSum = WriteOffAccount.Balance - Sum;
+                СreditAccount.Balance += TmpSum;
+                return true;
+            }
+            else return false;
+        }
+        public static string TaskString(string line)
+        {
+            if (line == string.Empty || line is null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                string Tmpline = string.Empty;
+                for (int i = line.Length - 1; i > 0; i--)
+                {
+                    Tmpline += line[i];
+                }
+                return Tmpline;
+            }
+        }
+
+        public static void SearchMail(ref string s)
+        {
+            int CountEmails = s.Split('\u0026').Count();
+            string[] tmp = new string[CountEmails];
+            tmp = s.Split('\u0026');
+
+            s = string.Empty;
+            for (int i = 0; i < CountEmails; i++)
+            {
+                bool resultFind = tmp[i].Contains("@");
+                if (!resultFind)
+                {
+                    tmp[i] = String.Empty;
+                }
+                else
+                {
+                    int SubCount = tmp[i].Split(" ").Count();
+                    if (SubCount > 1)
+                    {
+                        string[] SubTmp = new string[SubCount];
+                        SubTmp = tmp[i].Split(" ");
+                        for (int j = 0; j < SubCount; j++)
+                        {
+                            if (SubTmp[j].Any())
+                            {
+                                if (SubTmp[j].Contains("@"))
+                                {
+                                    s += SubTmp[j];
+                                    s += ";";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
     }
 }
