@@ -1,4 +1,6 @@
-﻿namespace Lesson_2
+﻿using Lesson_2.Lesson_6;
+
+namespace Lesson_2
 {
    static class Program
     {
@@ -8,6 +10,8 @@
         }
         static void PrintBankAccount3()
         {
+            // 1 задание
+
             BankAccount3 bankAccountMain = new BankAccount3(231414, BankAccount3.BankAccountType.Deposit);
             bankAccountMain.PrintAccount();
 
@@ -21,6 +25,15 @@
             string s = "Кучма Андрей Витальевич & Kuchma@mail.ru Мизинцев Павел Николаевич & Pasha@mail.ru";
 
             BankAccount3.SearchMail(ref s);
+
+            // 2 задание
+            Console.Clear();
+
+            //Circle circle = new Circle(6, 6);
+
+            Rectangle rectangle = new Rectangle(4, 5);
+
+
         }
     }
 }
